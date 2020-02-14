@@ -1,0 +1,72 @@
+{
+    "info": {
+        "title": "github_scraping",
+        "version": "1.0.0",
+        "description": "[Specification JSON](/api-spec)"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "Health Check",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {}
+            },
+            "post": {
+                "summary": "Scrap github repository",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/basicPayload"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/exampleResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+
+        "basicPayload": {
+            "type": "object",
+            "properties": {
+                "user": {
+                    "type": "string"
+                },
+                "repo": {
+                    "type": "string"
+                }
+            }
+        },
+        "exampleResponse": {
+            "type": "object",
+            "properties": {
+                "js": {
+                    "type": "number"
+                },
+                "totalBytes": {
+                    "type": "number"
+                }
+            }
+        }
+
+
+    },
+    "swagger": "2.0"
+}
